@@ -6,7 +6,7 @@ SRC=src
 INCFLAG=-I$(INC)
 CC=gcc
 CFLAGS=-g -Wall -Werror $(INCFLAG)
-LFLAGS=-rdynamic
+LFLAGS= -L/usr/local/lib -lvmdk
 
 INCLUDES:= $(wildcard $(INC)/*.h)
 SOURCES := $(wildcard $(SRC)/*.c)
@@ -16,7 +16,7 @@ $(OBJ)/%.o: $(SRC)/%.c $(INCLUDES)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 $(exename):$(OBJECTS)
-	$(CC) $(LFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(LFLAGS)
 
 clean:
 	rm -f test
