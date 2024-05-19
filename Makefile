@@ -6,7 +6,7 @@ SRC=src
 INCFLAG=-I$(INC)
 CC=gcc
 CFLAGS=-g -Wall -Werror $(INCFLAG)
-LFLAGS= -L/usr/local/lib -lvmdk
+LFLAGS= -L/usr/local/lib
 
 INCLUDES:= $(wildcard $(INC)/*.h)
 SOURCES := $(wildcard $(SRC)/*.c)
